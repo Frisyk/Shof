@@ -95,7 +95,6 @@
             app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
         <TextView
-            android:id="@+id/tv_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -105,7 +104,6 @@
             app:layout_constraintTop_toBottomOf="@+id/released" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -134,14 +132,12 @@
             app:strokeWidth="2dp" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_begin="20dp" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -170,7 +166,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
         <include
-            android:id="@+id/view_empty_details"
+            android:id="@+id/viewEmptyDetails"
             layout="@layout/view_empty"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"

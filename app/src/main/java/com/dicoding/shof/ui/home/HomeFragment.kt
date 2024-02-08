@@ -6,6 +6,7 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -23,15 +24,15 @@ class HomeFragment : Fragment() {
     private val homeViewModel: HomeViewModel by viewModel()
 
     private var _binding: FragmentHomeBinding? = null
-    private val binding get() = _binding!!
+    private val binding get() = _binding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): ConstraintLayout? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        return binding.root
+        return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -49,32 +50,32 @@ class HomeFragment : Fragment() {
             homeViewModel.searchResult.observe(viewLifecycleOwner) { games ->
                 if (games != null) {
                     when (games) {
-                        is ApiResponse.Empty -> binding.loadingBar.visibility = View.VISIBLE
+                        is ApiResponse.Empty -> binding?.loadingBar?.visibility = View.VISIBLE
                         is ApiResponse.Success -> {
-                            binding.loadingBar.visibility = View.GONE
+                            binding?.loadingBar?.visibility = View.GONE
                             gamesAdapter.submitList(games.data)
                         }
 
                         is ApiResponse.Error -> {
-                            binding.loadingBar.visibility = View.GONE
-                            binding.viewError.root.visibility = View.VISIBLE
-                            binding.viewError.tvError.text =
+                            binding?.loadingBar?.visibility = View.GONE
+                            binding?.viewError?.root?.visibility = View.VISIBLE
+                            binding?.viewError?.tvError?.text =
                                 games.errorMessage
                         }
                     }
                 }
             }
 
-            with(binding.rvGames) {
-                layoutManager = LinearLayoutManager(context)
-                setHasFixedSize(true)
-                adapter = gamesAdapter
+            with(binding?.rvGames) {
+                this?.layoutManager = LinearLayoutManager(context)
+                this?.setHasFixedSize(true)
+                this?.adapter = gamesAdapter
             }
         }
     }
 
     private fun searchBar() {
-        binding.search.addTextChangedListener(object : TextWatcher {
+        binding?.search?.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
             }
 

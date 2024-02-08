@@ -10,25 +10,26 @@ import com.dicoding.shof.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    private var _binding: ActivityMainBinding? = null
+    private val binding get() = _binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        _binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding?.root)
 
         supportActionBar?.hide()
 
-        val navView: BottomNavigationView = binding.navView
+        val navView: BottomNavigationView? = binding?.navView
         navController.addOnDestinationChangedListener { _, destination, _ ->
             if(destination.id == R.id.detailsFragments) {
-                navView.visibility = View.GONE
+                navView?.visibility = View.GONE
             } else {
-                navView.visibility = View.VISIBLE
+                navView?.visibility = View.VISIBLE
             }
         }
-        navView.setupWithNavController(navController)
+        navView?.setupWithNavController(navController)
     }
 
     private val navController by lazy {
@@ -36,6 +37,11 @@ class MainActivity : AppCompatActivity() {
             .findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
 
         navHostFragment.navController
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }
 

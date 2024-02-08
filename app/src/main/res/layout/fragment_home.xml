@@ -5,14 +5,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="100dp"
+    android:paddingBottom="80dp"
+    android:paddingTop="10dp"
     tools:context=".ui.home.HomeFragment"
     >
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_marginHorizontal="16dp"
         android:id="@+id/search_bar"
         android:hint="@string/searchbar_hint"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,7 +55,7 @@
         tools:listitem="@layout/item_list_games" />
 
     <include
-        android:id="@+id/view_error"
+        android:id="@+id/viewError"
         layout="@layout/view_error"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
