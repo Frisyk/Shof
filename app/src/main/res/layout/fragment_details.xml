@@ -64,7 +64,8 @@
             app:layout_constraintEnd_toEndOf="@+id/btn_fav"
             app:layout_constraintHorizontal_bias="0.43"
             app:layout_constraintStart_toStartOf="@+id/btn_fav"
-            app:layout_constraintTop_toBottomOf="@+id/btn_fav" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_fav"
+            tools:targetApi="p" />
 
         <TextView
             android:id="@+id/rating"
