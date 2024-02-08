@@ -1,13 +1,13 @@
 version: 2.1
- 
+
 orbs:
   android: circleci/android@2.3.0
- 
+
 jobs:
   build:
     executor: 
-        name: android/android-machine
-        tag: 2023.09.1
+      name: android/android-machine
+      tag: 2023.09.1
     steps:
       - checkout
       - android/change-java-version:
@@ -32,10 +32,17 @@ jobs:
           path: app/build/reports
           destination: reports
       - run:
+          name: Run Lint
+          command: ./gradlew lint
+      - run:
           name: Run Tests
-          command: ./gradlew lint test
+          command: ./gradlew test
       - store_test_results:
           path: app/build/test-results
-      - store_artifacts:  
-          path: app/build/outputs/apk/debug/
-          destination: artifact-file
+      - run:
+          name: Run Code Coverage
+          command: ./gradlew jacocoTestReport
+      - store_artifacts:
+          path: app/build/reports
+          destination: reports
+      # Add steps for code style analysis, vulnerability scanning, etc.
