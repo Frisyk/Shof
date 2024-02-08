@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Shof</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_favorites">Favorites</string>
+    <string name="title_details">Details</string>
+    <string name="title">Title</string>
+    <string name="released">Released</string>
+    <string name="rating">%s⭐</string>
+    <string name="something_wrong">Oops, Something Wrong!</string>
+    <string name="no_data">There is no Anything Here</string>
+    <string name="add_to_fav">Add To Favorites</string>
+    <string name="added_to_fav">Added To Favorites</string>
+    <string name="rating_text">Rating</string>
+    <string name="searchbar_hint">Search Your Game Here</string>
+</resources>
