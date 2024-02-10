@@ -15,7 +15,6 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:id="@+id/search_bar"
-        android:hint="@string/searchbar_hint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -24,8 +23,10 @@
             style="@style/Widget.MaterialComponents.AutoCompleteTextView.FilledBox"
             android:layout_width="match_parent"
             android:maxLines="1"
+            android:hint="@string/searchbar_hint"
             android:layout_height="wrap_content"
-            android:labelFor="@id/search_bar" />
+            android:labelFor="@id/search_bar"
+            tools:ignore="LabelFor" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <ProgressBar

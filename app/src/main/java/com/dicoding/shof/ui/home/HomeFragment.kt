@@ -50,9 +50,15 @@ class HomeFragment : Fragment() {
             homeViewModel.searchResult.observe(viewLifecycleOwner) { games ->
                 if (games != null) {
                     when (games) {
-                        is ApiResponse.Empty -> binding?.loadingBar?.visibility = View.VISIBLE
+                        is ApiResponse.Empty -> {
+                            binding?.rvGames?.visibility = View.GONE
+                            binding?.viewError?.root?.visibility = View.VISIBLE
+                            binding?.viewError?.tvError?.text = getString(R.string.no_data)
+                        }
                         is ApiResponse.Success -> {
                             binding?.loadingBar?.visibility = View.GONE
+                            binding?.rvGames?.visibility = View.VISIBLE
+                            binding?.viewError?.root?.visibility = View.GONE
                             gamesAdapter.submitList(games.data)
                         }
 
